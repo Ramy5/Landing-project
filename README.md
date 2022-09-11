@@ -12,5 +12,6 @@
 - Contain button to scroll to the top.
 - Lists in the navbar created by js depend on sections on page.
 - The project is responsive in all media.
+- Arrow icon to scroll to the top from &copy;ionicon website.
 
 📅 created in 09/11/2022 (dd/mm/yy) ❤️
