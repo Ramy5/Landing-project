@@ -1,0 +1,358 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(136, 203, 171);
+  background: linear-gradient(
+    0deg,
+    rgba(136, 203, 171, 1) 0%,
+    rgba(0, 13, 60, 1) 100%
+  );
+  margin: 0;
+  font-family: "Merriweather", serif;
+  color: #fff;
+}
+
+/* start header contain nav */
+.page__header {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 60px;
+  z-index: 500;
+  transition: all ease-in-out 0.2s;
+}
+
+.page__header .nav {
+  min-width: 50%;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.page__header .list {
+  height: inherit;
+  align-items: center;
+  color: rgba(0, 13, 60, 1);
+  margin-left: auto;
+  list-style: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  .page__header .list {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    padding: 1rem 0.5rem;
+    display: none;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  .page__header .list {
+    display: flex !important;
+  }
+}
+
+.page__header .list li {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .page__header .list li {
+    width: 100%;
+  }
+}
+
+.page__header .list li a {
+  height: 60px;
+  text-decoration: none;
+  color: #333;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.5s;
+}
+
+@media (max-width: 767px) {
+  .page__header .list li a {
+    display: block;
+    width: 100%;
+  }
+}
+
+.page__header .list li a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.hidden--nav {
+  transform: translateY(-120px);
+}
+/* end header contain nav */
+
+/* start main head */
+.main-head {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  font-family: "Fira Sans", sans-serif;
+}
+
+@media (max-width: 767px) {
+  .main-head h1 {
+    font-size: 3rem;
+  }
+}
+/* end main head */
+
+/* start sections */
+section {
+  height: 100vh;
+  padding: 5rem;
+}
+
+@media (max-width: 767px) {
+  section {
+    padding: 1rem;
+  }
+}
+
+.landing__container {
+  max-height: 80vh;
+  min-width: 70%;
+  overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+  .landing__container {
+    width: 70%;
+  }
+}
+
+.landing__container .section-head {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid #cc1;
+  font-family: "Oxygen", Sans-Serif;
+}
+
+.landing__container p {
+  line-height: 1.9;
+  font-size: 1.1rem;
+  color: #eee;
+}
+
+/* for specific section */
+section:nth-of-type(even) .landing__container {
+  text-align: right;
+  margin-left: auto;
+}
+
+section:nth-of-type(odd) .landing__container::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.187);
+  position: absolute;
+  z-index: -4;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+section:nth-of-type(even) .landing__container::before {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  position: absolute;
+  top: 3em;
+  right: 3em;
+  z-index: -4;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  z-index: -5;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: all 0.5s;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+  content: "";
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  position: absolute;
+  right: 20vw;
+  bottom: -5em;
+  z-index: -5;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+/* end sections */
+
+/* active section */
+section.active {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+section.active .landing__container::before {
+  opacity: 1;
+  animation: animate 4s infinite forwards linear;
+}
+
+section.active .landing__container::after {
+  opacity: 1;
+  animation: animate 5s infinite forwards linear reverse;
+}
+
+/* animation for section */
+@keyframes animate {
+  from {
+    transform: rotate(0deg) translate(-1em) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(-1em) rotate(-360deg);
+  }
+}
+
+/* grid system */
+/* for mobail media (btn) */
+.btn {
+  display: none !important;
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .btn {
+    display: flex !important;
+  }
+}
+
+.btn span {
+  width: 100%;
+  height: 7px;
+  background: rgba(0, 13, 60, 1);
+  position: absolute;
+  left: 0;
+  margin: auto;
+}
+
+.btn span:first-of-type {
+  top: 6px;
+}
+.btn span:nth-of-type(2) {
+  top: 22px;
+}
+.btn span:last-of-type {
+  top: 38px;
+}
+
+.clicked span:first-of-type {
+  transform: rotate(45deg);
+  background-color: #ff5353;
+  top: 22px;
+}
+
+.clicked span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.clicked span:last-of-type {
+  transform: rotate(-45deg);
+  background-color: #ff5353;
+  top: 22px;
+}
+/* for mobail media (btn) */
+
+/* for scroll to top */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.scroll-top:hover {
+  background-color: #0368ba;
+}
+
+.hidden {
+  opacity: 0;
+}
+/* for scroll to top */
+/* grid system */
