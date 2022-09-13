@@ -14,7 +14,7 @@ const sectionFour = document.getElementById("section-4");
 // function for create ul list based on sections length
 const createLists = function () {
   for (let i = 0; i < sections.length; i++) {
-    const html = `<li><a href="#section-${i + 1}">Section ${i + 1}</a></li>`;
+    const html = `<li><a href="#" data-link=${i + 1}>Section ${i + 1}</a></li>`;
     // add list to ul
     ulList.insertAdjacentHTML("beforeend", html);
   }
@@ -81,4 +81,13 @@ scrollTopBtn.addEventListener("click", function () {
     left: 0,
     behavior: "smooth",
   });
+});
+
+//////// smooth scrolling ////////
+ulList.addEventListener("click", function (e) {
+  e.preventDefault();
+  const target = e.target.dataset.link;
+  document
+    .getElementById(`section-${target}`)
+    .scrollIntoView({ behavior: "smooth" });
 });
